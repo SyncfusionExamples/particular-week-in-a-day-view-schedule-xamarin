@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScheduleXamarin"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             x:Class="ScheduleXamarin.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Day" Priority="1" Order="Primary" Text="Day"/>
+        <ToolbarItem x:Name="Week" Priority="1" Order="Primary" Text="Week"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Behaviors>
+        <local:SchedulerBehavior/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <syncfusion:SfSchedule x:Name="schedule" FirstDayOfWeek="2" ScheduleView="WeekView" DataSource="{Binding Appointments}">
+            <syncfusion:SfSchedule.BindingContext>
+                <local:SchedulerViewModel/>
+            </syncfusion:SfSchedule.BindingContext>
+        </syncfusion:SfSchedule>
+    </ContentPage.Content>
+</ContentPage>
